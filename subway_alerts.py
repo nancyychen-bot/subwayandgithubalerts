@@ -177,9 +177,9 @@ def main():
 
     for a in new_alerts:
         lines_str = " ".join(f"[{line}]" for line in a["lines"])
-        title = f"\U0001f6a8 {lines_str} {a['type']}"
+        title = f"{lines_str} {a['type']}"
         priority = "urgent" if a["type"] in URGENT_TYPES else "high"
-        tags = ["train"] + [line.lower() for line in a["lines"]]
+        tags = ["rotating_light", "train"] + [line.lower() for line in a["lines"]]
         send_ntfy(title, a["header"], tags, priority)
         state["alerts"][a["state_key"]] = {
             "ts": now,
@@ -191,7 +191,7 @@ def main():
             if key not in current_keys:
                 lines_str = " ".join(f"[{l}]" for l in val.get("lines", []))
                 send_ntfy(
-                    f"✅ {lines_str} resolved",
+                    f"{lines_str} resolved",
                     "This alert is no longer in the feed.",
                     ["train", "white_check_mark"],
                     "default",
