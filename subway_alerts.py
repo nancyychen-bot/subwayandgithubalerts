@@ -15,7 +15,7 @@ FEED_URL = (
     "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/"
     "camsys%2Fsubway-alerts.json"
 )
-WATCHED_LINES = {"G", "A", "C", "F", "L"}
+WATCHED_LINES = {"A", "C", "G"}
 TRIGGER_TYPES = {
     "Delays",
     "Suspended",

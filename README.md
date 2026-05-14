@@ -1,10 +1,10 @@
 # MTA Subway Alerts → NTFY
 
-GitHub Actions cron that monitors NYC subway lines **G, A, C, F, L** and pushes alerts to [ntfy.sh](https://ntfy.sh) when there's a real disruption.
+GitHub Actions cron that monitors NYC subway lines **A, C, G** during weekday commute hours and pushes alerts to [ntfy.sh](https://ntfy.sh) when there's a real disruption.
 
 ## How it works
 
-Every 5 minutes, the workflow:
+Every 5 minutes during commute windows (8-11 AM & 4-7 PM EDT, Mon-Fri), the workflow:
 
 1. Fetches the MTA's JSON alert feed (no API key needed)
 2. Filters for real disruptions (Delays, Suspended, Reroute, No Service, Service Change, No Scheduled Service)
@@ -29,7 +29,7 @@ Every 5 minutes, the workflow:
 
 ## Watched lines
 
-G, A, C, F, L — edit `WATCHED_LINES` in `subway_alerts.py` to change.
+A, C, G — edit `WATCHED_LINES` in `subway_alerts.py` to change.
 
 ## Stack
 
